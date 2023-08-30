@@ -8,7 +8,7 @@ En el bloque try, si se produce una excepción, la detectará el primer bloque c
 En otras palabras, la ejecución salta de la instrucción throw a la instrucción catch. 
 Si no se encuentra ningún bloque catch utilizable, se invoca std::terminate y se cierra el programa. 
 
-> [!EXPLICACION]
+> [!Note]
 > El código de _ **ejemplo.cpp**_ ilustra cómo usar excepciones para manejar casos en los que los valores pasados a una función están fuera de los límites esperados. 
 En este caso, si un valor demasiado grande se pasa a MyFunc, se lanza una excepción que se captura en la función main, lo que permite al programa manejar el error de manera controlada.
 
