@@ -53,5 +53,8 @@ Este repositorio contiene un simple juego de consola implementado en Python que 
 - `iniciar_juego()`:
  Configura y devuelve el estado inicial del juego, con el jugador en la posición inicial y los objetos y obstáculos colocados aleatoriamente.
 
+## Juego
+  [Código en Google Collab](https://colab.research.google.com/drive/1VQiZ1qQxZpHszk8AWhMbbtwIf44ASxpX?usp=sharing)
+
 ## Autor
 - Leobardo Leonel Cortés Pérez - [Leonel Cortés](https://github.com/leoneleoss)
