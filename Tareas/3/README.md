@@ -43,7 +43,7 @@ Este repositorio contiene un simple juego de consola implementado en Python que 
 ### Funciones Principales
 
 - `guardar_checkpoint(estado)`:
- / Guarda el estado actual del juego en un archivo utilizando el módulo pickle.
+ Guarda el estado actual del juego en un archivo utilizando el módulo pickle.
 - `cargar_checkpoint()`:
  Carga el estado del juego desde un archivo si existe, permitiendo la reanudación del juego.
 - `mostrar_tablero(estado)`:
