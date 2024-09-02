@@ -2,6 +2,9 @@
 
 Este repositorio contiene un simple juego de consola implementado en Python que demuestra el uso de la técnica de checkpointing para guardar y restaurar el estado del juego. El juego se desarrolla en una cuadrícula 2D donde el jugador puede moverse, recoger objetos y evitar obstáculos. El estado del juego se guarda automáticamente después de cada movimiento, permitiendo que el jugador reanude el juego desde el último punto guardado en caso de cierre o interrupción.
 
+## Juego
+  [Código en Google Collab](https://colab.research.google.com/drive/1VQiZ1qQxZpHszk8AWhMbbtwIf44ASxpX?usp=sharing)
+
 ## Características
 
 - **Juego en consola**: Movimiento del jugador en una cuadrícula 2D usando las teclas `w`, `a`, `s`, `d`.
@@ -52,9 +55,6 @@ Este repositorio contiene un simple juego de consola implementado en Python que 
  Mueve al jugador en la dirección especificada (si es válida) y actualiza el estado del juego.
 - `iniciar_juego()`:
  Configura y devuelve el estado inicial del juego, con el jugador en la posición inicial y los objetos y obstáculos colocados aleatoriamente.
-
-## Juego
-  [Código en Google Collab](https://colab.research.google.com/drive/1VQiZ1qQxZpHszk8AWhMbbtwIf44ASxpX?usp=sharing)
 
 ## Autor
 - Leobardo Leonel Cortés Pérez - [Leonel Cortés](https://github.com/leoneleoss)
