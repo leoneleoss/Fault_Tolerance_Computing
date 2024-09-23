@@ -42,18 +42,67 @@ Detalles del Código
 ## Ejemplo de Salida
 
 ```bash yaml
-    Running threads...
-    [2024-09-16 12:00:00] Thread-0: Starting to count letters in file_1.txt
-    [2024-09-16 12:00:00] Thread-1: Starting to count letters in file_2.txt
-    ...
+PS C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing> & C:/Users/leoba/AppData/Local/Programs/Python/Python312/python.exe c:/Users/leoba/OneDrive/Documentos/GitHub/Fault_Tolerance_Computing/Tareas/4/main.py
+Ruta del archivo: C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4
+==== Starting all tasks ====
 
-    Running processes...
-    [2024-09-16 12:00:10] Process-0: Starting to count letters in file_1.txt
-    [2024-09-16 12:00:10] Process-1: Starting to count letters in file_2.txt
-    ...
 
-    Running asyncio tasks...
-    [2024-09-16 12:00:20] Async-0: Starting to count letters in file_1.txt
-    [2024-09-16 12:00:20] Async-1: Starting to count letters in file_2.txt
-    ...
+==== Running threads ====
+
+[2024-09-23 10:19:15.002575] Thread-0: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_1.txt
+[2024-09-23 10:19:15.002575] Thread-1: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_2.txt
+[2024-09-23 10:19:15.002575] Thread-2: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_3.txt
+[2024-09-23 10:19:15.002575] Thread-3: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_4.txt
+Thread-0 is working...
+Thread-3 is working...
+Thread-2 is working...
+Thread-1 is working...
+[2024-09-23 10:19:29.003702] Thread-3: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_4.txt has 33 letters.
+
+[2024-09-23 10:19:29.004851] Thread-1: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_2.txt has 37 letters.
+
+[2024-09-23 10:19:29.006854] Thread-0: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_1.txt has 34 letters.
+
+[2024-09-23 10:19:29.007856] Thread-2: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_3.txt has 34 letters.
+
+
+==== Running processes ====
+
+[2024-09-23 10:19:29.103943] Process-0: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_1.txt
+[2024-09-23 10:19:29.106946] Process-1: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_2.txt
+[2024-09-23 10:19:29.106946] Process-2: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_3.txt
+[2024-09-23 10:19:29.110949] Process-3: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_4.txt
+Process-0 is working...
+Process-1 is working...
+Process-2 is working...
+Process-3 is working...
+[2024-09-23 10:19:44.106569] Process-0: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_1.txt has 34 letters.
+
+[2024-09-23 10:19:44.107432] Process-1: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_2.txt has 37 letters. 
+
+[2024-09-23 10:19:44.108428] Process-2: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_3.txt has 34 letters. 
+
+[2024-09-23 10:19:44.111430] Process-3: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_4.txt has 33 letters. 
+
+
+==== Running asyncio tasks ====
+
+[2024-09-23 10:19:44.122441] Async-0: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_1.txt
+[2024-09-23 10:19:44.122441] Async-1: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_2.txt
+[2024-09-23 10:19:44.122441] Async-2: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_3.txt
+[2024-09-23 10:19:44.122441] Async-3: Starting to count letters in C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_4.txt
+Async-0 is working...
+Async-2 is working...
+Async-1 is working...
+Async-3 is working...
+[2024-09-23 10:19:59.123846] Async-0: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_1.txt has 34 letters.
+
+[2024-09-23 10:19:59.123846] Async-1: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_2.txt has 37 letters.
+
+[2024-09-23 10:19:59.124846] Async-2: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_3.txt has 34 letters.
+
+[2024-09-23 10:19:59.124846] Async-3: Finished. C:\Users\leoba\OneDrive\Documentos\GitHub\Fault_Tolerance_Computing\Tareas\4\file_4.txt has 33 letters.
+
+
+==== All tasks completed ====
 ```
