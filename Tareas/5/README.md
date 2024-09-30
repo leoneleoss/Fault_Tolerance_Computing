@@ -3,6 +3,8 @@
 
 Esta es una calculadora simple construida con Python y Tkinter, que no solo realiza operaciones matemáticas básicas, sino que también muestra el estado de la aplicación en tiempo real utilizando programación con hilos. 
 
+![Ejecución de la Calculadora](./Ejecucion.png)
+
 ## Funcionalidades
 
 - Operaciones matemáticas básicas: suma, resta, multiplicación, división.
@@ -49,11 +51,3 @@ estado_global = "Calculando..."
 ```
 
 Esto permite que los usuarios tengan información constante sobre lo que está sucediendo en la aplicación, tanto en la interfaz de usuario como en la terminal, sin afectar el rendimiento o la usabilidad de la calculadora.
-
-## Ejecución
-
-Para ejecutar la calculadora, asegúrate de tener Python instalado y ejecuta el siguiente comando:
-
-```bash
-python calculadora.py
-```
