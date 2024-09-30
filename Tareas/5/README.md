@@ -3,7 +3,7 @@
 
 Esta es una calculadora simple construida con Python y Tkinter, que no solo realiza operaciones matemáticas básicas, sino que también muestra el estado de la aplicación en tiempo real utilizando programación con hilos. 
 
-![Ejecución de la Calculadora](./Ejecucion.png)
+![Ejecución deL Código: ](Ejecucion.png)
 
 ## Funcionalidades
 
