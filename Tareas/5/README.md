@@ -55,5 +55,5 @@ Esto permite que los usuarios tengan información constante sobre lo que está s
 Para ejecutar la calculadora, asegúrate de tener Python instalado y ejecuta el siguiente comando:
 
 ```bash
-python calculadora.py
+python main.py
 ```
