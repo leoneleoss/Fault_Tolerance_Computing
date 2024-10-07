@@ -13,19 +13,25 @@ async def fetch_todos_from_api():
         raise Exception(f"Error al obtener datos de la API: {response.status_code}")
     
     todos = response.json()
-    print(f"Datos de los TODOs obtenidos: {todos[:2]}")  # Muestra solo los primeros 2 para no sobrecargar
+    print("\n")
+    for i, todo in enumerate(todos[:3]):
+        print(f"Datos del TODO {i+1}:\n{todo}")
+    print("\n  . . . \n")
     return todos
 
 # Tarea para filtrar TODOs completados
 @task
 def filter_completed_todos(todos):
     completed_todos = [todo for todo in todos if todo['completed']]
+    print("\n")
     print(f"Se encontraron {len(completed_todos)} TODOs completados.")
+    print("\n")
     return completed_todos
 
 # Tarea para generar un reporte de los TODOs completados
 @task
 def generate_completed_todos_report(completed_todos):
+    print("\n")
     print("Generando reporte de TODOs completados:")
     for todo in completed_todos:
         print(f"- TODO '{todo['title']}' (ID: {todo['id']}) está completado.")
