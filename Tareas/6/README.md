@@ -166,15 +166,9 @@ Generando reporte de TODOs completados:
 10:21:58.050 | INFO    | prefect - Stopping server on http://127.0.0.1:8399
 ```
 
-## Modificaciones Realizadas
-
-Se tomó un flujo básico de Prefect y se modificó para:
-
-- Obtener múltiples datos de una API externa.
-- Agregar una funcionalidad de filtro para los `todos` completados.
-- Generar un reporte sencillo de esos datos filtrados.
-
 ## Enlaces
 
 - **JSONPlaceholder API**: [https://jsonplaceholder.cypress.io](https://jsonplaceholder.cypress.io)
 - **Prefect**: [https://www.prefect.io](https://www.prefect.io)
+- **Getting Started with Prefect (PyData Denver)**: [https://www.youtube.com/watch?v=FETN0iivZps](https://www.youtube.com/watch?v=FETN0iivZps)
+- 
