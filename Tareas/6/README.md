@@ -24,10 +24,12 @@ El proyecto consiste en un flujo que realiza lo siguiente:
 
 ### Instalación de dependencias
 
-Puedes instalar las dependencias necesarias con los siguientes comandos:
+```bash
+pip install prefect
+```
 
 ```bash
-pip install prefect httpx
+pip install httpx
 ```
 
 ## Estructura del Código
@@ -171,4 +173,4 @@ Generando reporte de TODOs completados:
 - **JSONPlaceholder API**: [https://jsonplaceholder.cypress.io](https://jsonplaceholder.cypress.io)
 - **Prefect**: [https://www.prefect.io](https://www.prefect.io)
 - **Getting Started with Prefect (PyData Denver)**: [https://www.youtube.com/watch?v=FETN0iivZps](https://www.youtube.com/watch?v=FETN0iivZps)
-- 
+
