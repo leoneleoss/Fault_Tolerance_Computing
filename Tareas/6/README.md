@@ -190,6 +190,8 @@ Generando reporte de TODOs completados:
 11:15:22.957 | INFO    | Task run 'generate_completed_todos_report-ef6' - Finished in state Completed()
 11:15:23.016 | INFO    | Flow run 'colossal-rattlesnake' - Finished in state Completed()
 11:15:23.040 | INFO    | prefect - Stopping server on http://127.0.0.1:8196
+```
+
 ## Enlaces
 
 - **JSONPlaceholder API**: [https://jsonplaceholder.cypress.io](https://jsonplaceholder.cypress.io)
