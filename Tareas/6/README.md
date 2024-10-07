@@ -5,22 +5,24 @@ Este proyecto es un ejemplo de cómo usar Prefect para gestionar tareas asíncro
 
 ## Descripción
 
-El proyecto consiste en un flujo que realiza lo siguiente:
+El proyecto consiste en un flujo que realiza las siguientes tareas:
 
-1. Obtiene una lista de tareas (todos) desde la API de JSONPlaceholder (`https://jsonplaceholder.cypress.io/todos`).
-2. Filtra las tareas que han sido completadas.
-3. Genera un reporte en la consola mostrando los `todos` que están completados.
+1. **Obtención de Datos**: Hace una solicitud a la API de [JSONPlaceholder](https://jsonplaceholder.cypress.io/todos) para obtener una lista de TODOs.
+2. **Filtrado de TODOs Completados**: Filtra los TODOs para conservar solo aquellos que están completados.
+3. **Almacenamiento en Base de Datos**: Almacena los TODOs completados en una base de datos SQLite.
+4. **Generación de Reporte**: Genera un reporte en la consola con los detalles de los TODOs completados.
 
 ## Estructura del Proyecto
 
 - `main.py`: Archivo principal que contiene el código del flujo.
-- `README.md`: Este archivo, que explica el funcionamiento del proyecto.
+- `todos.db`: Archivo que contiene los datos guardados de la api
 
 ## Requisitos
 
 - Python 3.8+
 - [Prefect](https://docs.prefect.io/getting-started/installation/) (Versión moderna compatible con Prefect 2.x)
 - [httpx](https://www.python-httpx.org/) para hacer las solicitudes HTTP de manera asíncrona.
+- SQLite (incluido en Python)
 
 ### Instalación de dependencias
 
@@ -58,20 +60,42 @@ Esto hará lo siguiente:
 
 1. Realiza una solicitud a la API para obtener los `todos`.
 2. Filtra los `todos` que están completados.
+3. Revisa los datos almacenados en la base de datos `todos.db`. Puedes abrirla usando cualquier herramienta que soporte SQLite.
 3. Muestra un reporte en la consola de las tareas completadas.
 
 ### Ejemplo de salida:
 
 ```bash
-10:21:51.907 | INFO    | prefect - Starting server on http://127.0.0.1:8399
-10:21:56.273 | INFO    | prefect.engine - Created flow run 'colossal-shrimp' for flow 'todo-pipeline'
-10:21:56.599 | INFO    | Task run 'fetch_todos_from_api-f45' - Created task run 'fetch_todos_from_api-f45' for task 'fetch_todos_from_api'
-Datos de los TODOs obtenidos: [{'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}, {'userId': 1, 'id': 2, 'title': 'quis ut nam facilis et officia qui', 'completed': False}]
-10:21:57.446 | INFO    | Task run 'fetch_todos_from_api-f45' - Finished in state Completed()
-10:21:57.703 | INFO    | Task run 'filter_completed_todos-fd8' - Created task run 'filter_completed_todos-fd8' for task 'filter_completed_todos'
+11:15:16.570 | INFO    | prefect - Starting server on http://127.0.0.1:8196
+11:15:20.943 | INFO    | prefect.engine - Created flow run 'colossal-rattlesnake' for flow 'todo-pipeline'
+11:15:21.299 | INFO    | Task run 'fetch_todos_from_api-b82' - Created task run 'fetch_todos_from_api-b82' for task 'fetch_todos_from_api'
+
+
+Datos del TODO 1:
+{'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}
+Datos del TODO 2:
+{'userId': 1, 'id': 2, 'title': 'quis ut nam facilis et officia qui', 'completed': False}   
+Datos del TODO 3:
+{'userId': 1, 'id': 3, 'title': 'fugiat veniam minus', 'completed': False}
+
+  . . . 
+
+11:15:22.154 | INFO    | Task run 'fetch_todos_from_api-b82' - Finished in state Completed()
+11:15:22.420 | INFO    | Task run 'filter_completed_todos-c8a' - Created task run 'filter_completed_todos-c8a' for task 'filter_completed_todos'
+
+
 Se encontraron 90 TODOs completados.
-10:21:57.712 | INFO    | Task run 'filter_completed_todos-fd8' - Finished in state Completed()
-10:21:57.962 | INFO    | Task run 'generate_completed_todos_report-437' - Created task run 'generate_completed_todos_report-437' for task 'generate_completed_todos_report'
+
+
+11:15:22.429 | INFO    | Task run 'filter_completed_todos-c8a' - Finished in state Completed()
+11:15:22.680 | INFO    | Task run 'store_completed_todos_in_db-991' - Created task run 'store_completed_todos_in_db-991' for task 'store_completed_todos_in_db'
+
+Cargadas 90 tareas completadas en la base de datos.
+
+11:15:22.689 | INFO    | Task run 'store_completed_todos_in_db-991' - Finished in state Completed()
+11:15:22.942 | INFO    | Task run 'generate_completed_todos_report-ef6' - Created task run 'generate_completed_todos_report-ef6' for task 'generate_completed_todos_report'
+
+
 Generando reporte de TODOs completados:
 - TODO 'et porro tempora' (ID: 4) está completado.
 - TODO 'quo adipisci enim quam ut ab' (ID: 8) está completado.
@@ -90,7 +114,7 @@ Generando reporte de TODOs completados:
 - TODO 'veritatis pariatur delectus' (ID: 27) está completado.
 - TODO 'nemo perspiciatis repellat ut dolor libero commodi blanditiis omnis' (ID: 30) está completado.
 - TODO 'repellendus veritatis molestias dicta incidunt' (ID: 35) está completado.
-- TODO 'excepturi deleniti adipisci voluptatem et neque optio illum ad' (ID: 36) está completado.     
+- TODO 'excepturi deleniti adipisci voluptatem et neque optio illum ad' (ID: 36) está completado.
 - TODO 'totam atque quo nesciunt' (ID: 40) está completado.
 - TODO 'tempore ut sint quis recusandae' (ID: 43) está completado.
 - TODO 'cum debitis quis accusamus doloremque ipsa natus sapiente omnis' (ID: 44) está completado.
@@ -163,14 +187,11 @@ Generando reporte de TODOs completados:
 - TODO 'dignissimos quo nobis earum saepe' (ID: 197) está completado.
 - TODO 'quis eius est sint explicabo' (ID: 198) está completado.
 - TODO 'numquam repellendus a magnam' (ID: 199) está completado.
-10:21:57.976 | INFO    | Task run 'generate_completed_todos_report-437' - Finished in state Completed()
-10:21:58.009 | INFO    | Flow run 'colossal-shrimp' - Finished in state Completed()
-10:21:58.050 | INFO    | prefect - Stopping server on http://127.0.0.1:8399
-```
-
+11:15:22.957 | INFO    | Task run 'generate_completed_todos_report-ef6' - Finished in state Completed()
+11:15:23.016 | INFO    | Flow run 'colossal-rattlesnake' - Finished in state Completed()
+11:15:23.040 | INFO    | prefect - Stopping server on http://127.0.0.1:8196
 ## Enlaces
 
 - **JSONPlaceholder API**: [https://jsonplaceholder.cypress.io](https://jsonplaceholder.cypress.io)
 - **Prefect**: [https://www.prefect.io](https://www.prefect.io)
 - **Getting Started with Prefect (PyData Denver)**: [https://www.youtube.com/watch?v=FETN0iivZps](https://www.youtube.com/watch?v=FETN0iivZps)
-

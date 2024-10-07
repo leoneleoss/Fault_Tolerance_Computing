@@ -1,6 +1,12 @@
 import httpx
 from prefect import flow, task
 import asyncio
+import sqlite3
+import os
+
+# Obtener el directorio del script
+current_dir = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(current_dir, 'todos.db')
 
 # Tarea para obtener múltiples TODOs de la API usando httpx
 @task(retries=3, retry_delay_seconds=10)
@@ -28,6 +34,32 @@ def filter_completed_todos(todos):
     print("\n")
     return completed_todos
 
+# Tarea para almacenar los TODOs completados en una base de datos SQLite
+@task
+def store_completed_todos_in_db(completed_todos):
+    # Conectar a la base de datos SQLite (se creará si no existe)
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    # Crear la tabla si no existe
+    cursor.execute('''CREATE TABLE IF NOT EXISTS completed_todos (
+        id INTEGER PRIMARY KEY,
+        userId INTEGER,
+        title TEXT,
+        completed BOOLEAN
+    )''')
+
+    # Insertar los TODOs completados en la base de datos
+    for todo in completed_todos:
+        cursor.execute('''INSERT OR REPLACE INTO completed_todos (id, userId, title, completed)
+                          VALUES (?, ?, ?, ?)''', 
+                       (todo['id'], todo['userId'], todo['title'], todo['completed']))
+
+    # Guardar cambios y cerrar conexión
+    conn.commit()
+    conn.close()
+    print(f"\nCargadas {len(completed_todos)} tareas completadas en la base de datos.\n")
+
 # Tarea para generar un reporte de los TODOs completados
 @task
 def generate_completed_todos_report(completed_todos):
@@ -44,6 +76,9 @@ async def todo_pipeline():
 
     # Filtrar los TODOs completados
     completed_todos = filter_completed_todos(todos)
+
+    # Almacenar los TODOs completados en la base de datos
+    store_completed_todos_in_db(completed_todos)
 
     # Generar un reporte con los TODOs completados
     generate_completed_todos_report(completed_todos)
